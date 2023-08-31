@@ -1,3 +1,5 @@
+package me.refactoring.eventsystem.example;
+
 import me.refactoring.eventsystem.Event;
 
 /**

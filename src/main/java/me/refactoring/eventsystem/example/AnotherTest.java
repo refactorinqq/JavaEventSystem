@@ -1,3 +1,5 @@
+package me.refactoring.eventsystem.example;
+
 import me.refactoring.eventsystem.Subscribe;
 
 /**
@@ -7,7 +9,7 @@ import me.refactoring.eventsystem.Subscribe;
 public class AnotherTest {
     @Subscribe(target = TestEvent.class)
     public static void onTestEvent() {
-        System.out.println("Test Event Triggered");
+        System.out.println("Example Event Triggered");
     }
 
     @Subscribe(target = String.class)
