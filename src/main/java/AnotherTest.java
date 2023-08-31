@@ -5,13 +5,13 @@ import me.refactoring.eventsystem.Subscribe;
  * @date 01-09-2023
  */
 public class AnotherTest {
-    @Subscribe
-    public static void onTestEvent(TestEvent testEvent) {
+    @Subscribe(target = TestEvent.class)
+    public static void onTestEvent() {
         System.out.println("Test Event Triggered");
     }
 
-    @Subscribe
-    public static void onFalseTestEvent(String falseTestEvent) {
+    @Subscribe(target = String.class)
+    public static void onFalseTestEvent() {
         System.out.println("This event will never be triggered.");
     }
 }

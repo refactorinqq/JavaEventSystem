@@ -35,13 +35,11 @@ public class EventManager {
     public void fire(Event event) {
         targetClasses.forEach((clazz, object) -> {
             for (Method method : clazz.getDeclaredMethods()) {
-                for (Parameter parameter : method.getParameters()) {
-                    if(parameter.getType().isAssignableFrom(event.getClass()) && method.isAnnotationPresent(Subscribe.class)) {
-                        try {
-                            method.invoke(object, event);
-                        } catch (IllegalAccessException | InvocationTargetException e) {
-                            throw new RuntimeException(e);
-                        }
+                if(method.isAnnotationPresent(Subscribe.class) && method.getAnnotation(Subscribe.class).target().equals(event.getClass())) {
+                    try {
+                        method.invoke(object);
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        throw new RuntimeException(e);
                     }
                 }
             }

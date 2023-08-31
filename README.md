@@ -1,4 +1,4 @@
-# JavaEventSystem
+# Event System
 simple annotation based event system
 
 
@@ -9,6 +9,7 @@ simple annotation based event system
 public class CustomEvent() extends Event {}
 ```
 
+`Main class`
 ```java
 // in ur start method or similar
 private EventManager eventManager = EventManager.getInstance();
@@ -16,10 +17,14 @@ eventManager.register(new EventListener()); // Replace with ur class where the e
 
 // when u want to call the event
 eventManager.fire(new CustomEvent(data));
-
-// listening for the event
-@Subscribe
-public static void onCustomEvent(CustomEvent customEvent) {
-  // event triggered code
+```
+`EventListener.java`
+```java
+public class EventListener {
+    // listening for the event
+    @Subscribe(target = CustomEvent.class)
+    public static void onCustomEvent() {
+        // event triggered code
+    }   
 }
 ```
