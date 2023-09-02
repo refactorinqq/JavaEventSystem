@@ -8,12 +8,12 @@ import me.refactoring.eventsystem.Subscribe;
  */
 public class AnotherTest {
     @Subscribe(target = TestEvent.class)
-    public static void onTestEvent() {
+    public static void onTestEvent(TestEvent args) {
         System.out.println("Example Event Triggered");
     }
 
     @Subscribe(target = String.class)
-    public static void onFalseTestEvent() {
+    public static void onFalseTestEvent(String event) {
         System.out.println("This event will never be triggered.");
     }
 }

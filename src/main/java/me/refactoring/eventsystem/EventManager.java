@@ -37,7 +37,7 @@ public class EventManager {
             for (Method method : clazz.getDeclaredMethods()) {
                 if(method.isAnnotationPresent(Subscribe.class) && method.getAnnotation(Subscribe.class).target().equals(event.getClass())) {
                     try {
-                        method.invoke(object);
+                        method.invoke(object, event);
                     } catch (IllegalAccessException | InvocationTargetException e) {
                         throw new RuntimeException(e);
                     }
