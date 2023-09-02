@@ -23,7 +23,7 @@ eventManager.fire(new CustomEvent(data));
 public class EventListener {
     // listening for the event
     @Subscribe(target = CustomEvent.class)
-    public static void onCustomEvent() {
+    public static void onCustomEvent(CustomEvent event) {
         // event triggered code
     }   
 }
