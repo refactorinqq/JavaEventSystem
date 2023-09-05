@@ -11,9 +11,12 @@ import java.util.Map;
  * @date 01-09-2023
  */
 public class EventManager {
-    private static final EventManager instance = new EventManager();
+    private static final EventManager instance = null;
 
     public static EventManager getInstance() {
+        synchronized(EventManager.class) {
+            if (instance == null) instance = new EventManager();
+        }
         return instance;
     }
 
